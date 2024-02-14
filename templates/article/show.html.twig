@@ -3,39 +3,27 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <h1>Article</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ article.titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ article.description }}</td>
-            </tr>
-            <tr>
-                <th>Pseudo</th>
-                <td>{{ article.pseudo }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <h2>Commentaires</h2>
-    <div class="commentaires_container"><ul>
-            {% for commentaire in commentaires %}
-                <li>{{ commentaire.pseudo }} a dit {{ commentaire.description }}</li>
-            {% else %}
-                <li>pas de commentaire</li>
-            {% endfor %}
-        </ul>
+<div class="article-container">
+    <h1>{{ article.titre }}</h1>
+    <p>{{ article.description }}</p>
+    <p>Par <span class="author-name">{{ article.pseudo }}</span>, dernière mise à jour il y a <time class="last-updated">{{ article.updatedAt|time_ago  }}</time></p>
+</div>
+    <div class="add-comment-container">
         <h3>Ajouter un commentaire</h3>
-        {{ form_widget(form) }}
-        <button class="btn">{{ button_label|default('Ajouter un commentaire') }}</button>
+        {{ include('article/_formAddComm.html.twig') }}
+    </div>
+    <div class="comments-container">
+        <h2>Commentaires</h2>
+        {% for commentaire in commentaires %}
+        <div class="comment">
+            <p class="comment-author">{{ commentaire.pseudo }}</p>
+            <p class="comment-date">Il y a {{ commentaire.updatedAt|time_ago }}</p>
+            <p class="comment-content">{{ commentaire.description }}</p>
+        </div>
+        {% else %}
+            <p>Pas de commentaire</p>
+        {% endfor %}
+
     </div>
     <button class="btn"><a href="{{ path('app_article_index') }}">back to list</a></button>
 

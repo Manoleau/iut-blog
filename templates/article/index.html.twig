@@ -3,37 +3,20 @@
 {% block title %}Article index{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
+    <div>
+    {% for article in articles %}
+        <div class="article-container view-mode">
+            <h1>{{ article.titre }}</h1>
+            <p>{{ article.description }}</p>
+            <p>Par <span class="author-name">{{ article.pseudo }}</span>, dernière mise à jour il y a <time class="last-updated">{{ article.updatedAt|time_ago  }}</time></p>
+            <a href="{{ path('app_article_show', {'id': article.id}) }}" class="edit-article-btn">Afficher</a>
+            <a href="{{ path('app_article_edit', {'id': article.id}) }}" class="edit-article-btn">Editer</a>
+        </div>
+    {% else %}
+        <p>Pas de commentaire</p>
+    {% endfor %}
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>Pseudo</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.titre }}</td>
-                <td>{{ article.description }}</td>
-                <td>{{ article.pseudo }}</td>
-                <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
     <a href="{{ path('app_article_new') }}">Create new</a>
 {% endblock %}

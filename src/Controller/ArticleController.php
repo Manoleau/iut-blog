@@ -34,6 +34,9 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $actuel = new \DateTimeImmutable();
+            $article->setCreatedAt($actuel);
+            $article->setUpdatedAt($actuel);
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -54,6 +57,9 @@ class ArticleController extends AbstractController
         $form = $this->createForm(ArticleCommentaireType::class, $commentaire);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $actuel = new \DateTimeImmutable();
+            $commentaire->setCreatedAt($actuel);
+            $commentaire->setUpdatedAt($actuel);
             $entityManager->persist($commentaire);
             $entityManager->flush();
 
@@ -84,14 +90,14 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    // #[Route('/{id}', name: 'app_article_delete', methods: ['POST'])]
-    // public function delete(Request $request, Article $article, EntityManagerInterface $entityManager): Response
-    // {
-    //     if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
-    //         $entityManager->remove($article);
-    //         $entityManager->flush();
-    //     }
+    #[Route('/{id}', name: 'app_article_delete', methods: ['POST'])]
+    public function delete(Request $request, Article $article, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($article);
+            $entityManager->flush();
+        }
 
-    //     return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
-    // }
+        return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
+    }
 }

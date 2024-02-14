@@ -17,12 +17,6 @@ class ArticleType extends AbstractType
             ->add('titre')
             ->add('description')
             ->add('pseudo')
-            ->add('categories', EntityType::class, [
-                'class' => Categorie::class,
-'choice_label' => 'id',
-'multiple' => true,
-                'expanded'=>true,
-            ])
         ;
     }
 

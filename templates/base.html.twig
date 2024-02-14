@@ -12,6 +12,15 @@
         {% endblock %}
     </head>
     <body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="/" class="home-link">IUT Blog</a>
+            <form class="search-form" action="/search" method="GET">
+                <input type="text" name="q" placeholder="Rechercher...">
+                <button type="submit">Recherche</button>
+            </form>
+        </div>
+    </header>
         {% block body %}{% endblock %}
     </body>
 </html>
