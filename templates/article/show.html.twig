@@ -3,7 +3,7 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-<div class="article-container">
+<div class="article-container top">
     <h1>{{ article.titre }}</h1>
     <p>{{ article.description }}</p>
     <p>Par <span class="author-name">{{ article.pseudo }}</span>, dernière mise à jour il y a <time class="last-updated">{{ article.updatedAt|time_ago  }}</time></p>
@@ -25,10 +25,7 @@
         {% endfor %}
 
     </div>
-    <button class="btn"><a href="{{ path('app_article_index') }}">back to list</a></button>
-
-    <button class="btn"><a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a></button>
-
+    <a href="{{ path('app_article_index') }}" class="retour-menu-principal">back to list</a>
 
     {# {{ include('article/_delete_form.html.twig') }} #}
 {% endblock %}

@@ -40,7 +40,7 @@ class ArticleController extends AbstractController
             $entityManager->persist($article);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_article_show', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('article/new.html.twig', [

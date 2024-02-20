@@ -97,19 +97,23 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .add-comment-container button:hover {
     background-color: #0056b3;
 }
 
-
-
-
 .site-header {
     background-color: #007bff; /* Couleur de fond de l'en-tête */
     color: #ffffff;
     padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Hauteur de l'élément fixé */
+    z-index: 1000; /* S'assure que l'élément est au-dessus des autres éléments */
 }
 
 .header-content {
@@ -150,6 +154,9 @@
 .search-form button:hover {
     background-color: #004494;
 }
+.top{
+    margin-top: 50px;
+}
 
 .article-container.view-mode h1, .article-container.edit-mode form input[type="text"] {
     font-size: 24px;
@@ -185,4 +192,23 @@
 
 .edit-article-btn:hover {
     background-color: #0056b3;
+}
+.retour-menu-principal {
+    display: inline-block; /* Affiche le lien sous forme de bloc inline */
+    background-color: #007bff; /* Couleur de fond bleue */
+    color: #ffffff; /* Texte blanc pour un contraste élevé */
+    padding: 10px 20px; /* Espacement interne pour le rendre plus grand et plus lisible */
+    text-decoration: none; /* Enlève le soulignement par défaut des liens */
+    border-radius: 5px; /* Arrondit les coins pour un look moderne */
+    margin-top: 20px; /* Ajoute un peu d'espace au-dessus du bouton */
+    transition: background-color 0.3s ease; /* Effet de transition pour le survol */
+}
+
+.retour-menu-principal:hover {
+    background-color: #0056b3; /* Assombrit le bouton lors du survol pour un feedback visuel */
+}
+
+/* Assure que le bouton est visible même avec un en-tête fixe */
+.body-with-fixed-header {
+    padding-top: 60px; /* Ajustez cette valeur en fonction de la hauteur de votre en-tête fixe */
 }
