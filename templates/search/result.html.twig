@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search{% endblock %}
+
+{% block body %}
+    {% if app.request.query.get('q') %}
+        <h2>Résultats de recherche pour : "{{ app.request.query.get('q') }}"</h2>
+
+        <h3>Articles</h3>
+        {% for article in auteurs %}
+            <div>
+                <p>{{ article.titre }} de <strong>{{ article.pseudo }}</strong></p>
+            </div>
+        {% endfor %}
+        {% for article in titres %}
+            <div>
+                <p><strong>{{ article.titre }}</strong> de {{ article.pseudo }}</p>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <p>Veuillez entrer un terme de recherche.</p>
+    {% endif %}
+{% endblock %}
