@@ -91,21 +91,7 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-.add-article {
-    text-decoration: none;
-    color: white;
-    background-color: #007bff; /* Couleur de fond bleue pour le distinguer */
-    padding: 8px 12px; /* Espacement intérieur pour rendre le bouton plus grand */
-    border-radius: 4px; /* Arrondir les coins pour un look moderne */
-    font-size: 16px; /* Ajustement de la taille de la police pour une meilleure lisibilité */
-    transition: background-color 0.3s; /* Animation douce lors du survol */
-    margin-left: 30px;
-}
 
-.add-article:hover {
-    background-color: #0056b3; /* Assombrir le bouton au survol pour un effet interactif */
-    text-decoration: none; /* Garantir que le soulignement ne réapparaisse pas au survol */
-}
 
 .search-form .submit {
     background-color: #4CAF50; /* Vert pour indiquer l'action de soumission ou de validation */
@@ -151,4 +137,19 @@ input:checked + .slider:before {
     width: 40px;
     height: 40px;
     color: red;
+}
+
+.add {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff; /* Couleur de fond bleue pour le distinguer */
+    padding: 8px 12px; /* Espacement intérieur pour rendre le bouton plus grand */
+    border-radius: 4px; /* Arrondir les coins pour un look moderne */
+    font-size: 16px; /* Ajustement de la taille de la police pour une meilleure lisibilité */
+    transition: background-color 0.3s; /* Animation douce lors du survol */
+    margin-left: 30px;
+}
+.add:hover {
+    background-color: #0056b3; /* Assombrir le bouton au survol pour un effet interactif */
+    text-decoration: none; /* Garantir que le soulignement ne réapparaisse pas au survol */
 }

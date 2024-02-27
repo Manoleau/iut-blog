@@ -1,9 +1,14 @@
 .article-container {
+    margin: 0 auto;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
+    width: 50%;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
+    overflow-wrap: break-word;
+    margin-top: 40px;
+
 }
 
 .article-container h1 {
@@ -14,6 +19,8 @@
 .article-container p {
     color: #666;
     line-height: 1.5;
+    white-space: normal;
+
 }
 
 .author-name, .last-updated {
@@ -27,6 +34,8 @@
 }
 
 .add-comment-container, .comments-container {
+    width: 50%;
+    margin: 0 auto;
     margin-bottom: 20px;
 }
 
@@ -36,6 +45,10 @@
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+textarea{
+    height: 100px;
+    resize: none;
 }
 
 button.btn {
@@ -53,11 +66,13 @@ button.btn:hover {
 }
 
 .comments-container .comment {
+
     background-color: #f0f0f0;
     border: 1px solid #e0e0e0;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
+    overflow-wrap: break-word;
 }
 
 .comment-author {
@@ -76,4 +91,5 @@ button.btn:hover {
 
 .comment-content {
     color: #666;
+    white-space: normal;
 }
