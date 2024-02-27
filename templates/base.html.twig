@@ -14,15 +14,20 @@
     <body>
     <header class="site-header">
         <div class="header-content">
-            <a href="/" class="home-link">IUT Blog</a>
-            <label class="switch">
-                <input type="checkbox" id="admin-mode-switch">
-                <span class="slider round"></span>
-            </label>
-            <form class="search-form" action="/search" method="GET">
-                <input type="text" name="q" placeholder="Rechercher...">
-                <button type="submit">Recherche</button>
-            </form>
+            <div class="droite">
+                <a href="/" class="home-link">IUT Blog</a>
+            </div>
+            <div class="gauche">
+                <label class="switch">
+                    <input type="checkbox" id="admin-mode-switch">
+                    <span class="slider round"></span>
+                </label>
+                <button>Nouvelle article</button>
+                <form class="search-form" action="{{ path('app_search') }}" method="GET">
+                    <input type="text" name="q" placeholder="Rechercher...">
+                    <button type="submit">Recherche</button>
+                </form>
+            </div>
         </div>
     </header>
         {% block body %}{% endblock %}

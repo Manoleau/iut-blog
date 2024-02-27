@@ -1,214 +1,127 @@
-* {
-    overflow: auto;
-    box-sizing: border-box;
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-
-.article-container {
-    max-width: 800px; /* Sets the maximum width of the container to 800px */
-    margin: 0 auto; /* Centers the container in the middle of the viewport */
-    padding: 20px; /* Adds padding inside the container */
-    background: #fff; /* Sets the background color to white */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow around the container */
-    border-radius: 8px; /* Optional: Rounds the corners of the container */
-    font-family: 'Arial', sans-serif; /* Sets the font for the content inside the container */
-    line-height: 1.6; /* Sets the line height to enhance readability */
-    color: #333; /* Sets the text color to a dark gray */
-}
-
-/* Additional styling for the article's headings, paragraphs, and other elements */
-.article-container h1, .article-container h2, .article-container h3 {
-    color: #000; /* Sets the headings color to black */
-    margin-top: 20px; /* Adds a top margin to each heading */
-}
-
-.article-container p {
-    margin-bottom: 20px; /* Adds a bottom margin to each paragraph */
-    word-wrap: break-word; /* Empêche le texte de sortir du conteneur */
-    max-width: 100%; /* Assure que le commentaire ne dépasse pas le conteneur */
-}
-.author-name {
-    font-weight: bold; /* Rend le nom de l'auteur en gras */
-    color: #007BFF; /* Donne une couleur bleue au nom de l'auteur */
-}
-
-.last-updated {
-    font-style: italic; /* Met la date en italique */
-    color: #666; /* Utilise une couleur gris foncé pour la date */
-}
-.comments-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #f1f1f1; /* Différencie légèrement des autres conteneurs */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-radius: 5px;
-}
-
-.comment {
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eaeaea; /* Sépare visuellement chaque commentaire */
-    word-wrap: break-word; /* Empêche le texte de sortir du conteneur */
-    max-width: 100%; /* Assure que le commentaire ne dépasse pas le conteneur */
-}
-
-.comment:last-child {
-    border-bottom: none; /* Enlève la bordure du dernier commentaire */
-}
-
-.comment-author {
-    font-weight: bold;
-}
-
-.comment-date {
-    font-size: 0.9em;
-    color: #666;
-}
-
-.add-comment-container {
-    max-width: 800px;
-    margin: 20px auto; /* Ajoute de l'espace avant et après le formulaire */
-    padding: 20px;
-    background: #f9f9f9; /* Un fond légèrement différent pour se démarquer */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    border-radius: 5px;
-}
-
-.add-comment-container form {
-    display: flex;
-    flex-direction: column;
-}
-
-.add-comment-container input[type="text"],
-.add-comment-container textarea {
-    font-size: 16px;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.add-comment-container button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.add-comment-container button:hover {
-    background-color: #0056b3;
+    background-color: #f4f4f4;
 }
 
 .site-header {
-    background-color: #007bff; /* Couleur de fond de l'en-tête */
-    color: #ffffff;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50px; /* Hauteur de l'élément fixé */
-    z-index: 1000; /* S'assure que l'élément est au-dessus des autres éléments */
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
     margin: auto;
+    padding: 0 20px;
+}
+.gauche {
+    display: flex;
+    align-items: center;
+
+    /* Ajouter d'autres styles ici si nécessaire */
 }
 
 .home-link {
-    color: #ffffff;
+    color: white;
     text-decoration: none;
     font-size: 24px;
-    font-weight: bold;
-}
-
-.search-form {
-    display: flex;
 }
 
 .search-form input[type="text"] {
     padding: 5px;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: none;
 }
 
 .search-form button {
     padding: 5px 10px;
-    background-color: #0056b3;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 
-.search-form button:hover {
-    background-color: #004494;
-}
-.top{
-    margin-top: 50px;
+/* Style pour le switch du mode admin */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
 }
 
-.article-container.view-mode h1, .article-container.edit-mode form input[type="text"] {
-    font-size: 24px;
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+.article-container {
+    background-color: #e9e9e9;
+    padding: 20px;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
-.article-container.view-mode p, .article-container.edit-mode form textarea {
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-.article-container.edit-mode form input[type="text"], .article-container.edit-mode form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.article-container.edit-mode form textarea {
-    height: 150px; /* Donne plus d'espace pour l'édition du contenu */
+.author-name, .last-updated {
+    font-style: italic;
 }
 
 .edit-article-btn {
     display: inline-block;
-    background-color: #007bff;
+    padding: 10px 15px;
+    background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
     text-decoration: none;
+    margin-top: 10px;
     border-radius: 5px;
-    margin-top: 20px;
 }
 
 .edit-article-btn:hover {
-    background-color: #0056b3;
-}
-.retour-menu-principal {
-    display: inline-block; /* Affiche le lien sous forme de bloc inline */
-    background-color: #007bff; /* Couleur de fond bleue */
-    color: #ffffff; /* Texte blanc pour un contraste élevé */
-    padding: 10px 20px; /* Espacement interne pour le rendre plus grand et plus lisible */
-    text-decoration: none; /* Enlève le soulignement par défaut des liens */
-    border-radius: 5px; /* Arrondit les coins pour un look moderne */
-    margin-top: 20px; /* Ajoute un peu d'espace au-dessus du bouton */
-    transition: background-color 0.3s ease; /* Effet de transition pour le survol */
-}
-
-.retour-menu-principal:hover {
-    background-color: #0056b3; /* Assombrit le bouton lors du survol pour un feedback visuel */
-}
-
-/* Assure que le bouton est visible même avec un en-tête fixe */
-.body-with-fixed-header {
-    padding-top: 60px; /* Ajustez cette valeur en fonction de la hauteur de votre en-tête fixe */
+    background-color: #45a049;
 }

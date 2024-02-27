@@ -37,17 +37,17 @@ class AppExtension extends AbstractExtension
         $minutes = $interval->i;
 
         if ($years > 0) {
-            return $this->translator->trans('{1}Il y a un an|]1,Inf[Il y a %count% ans', ['%count%' => $years]);
+            return $this->translator->trans('{1}il y a un an|]1,Inf[il y a %count% ans', ['%count%' => $years]);
         } elseif ($months > 0) {
-            return $this->translator->trans('{1}Il y a un mois|]1,Inf[Il y a %count% mois', ['%count%' => $months]);
+            return $this->translator->trans('{1}il y a un mois|]1,Inf[il y a %count% mois', ['%count%' => $months]);
         } elseif ($days > 0) {
-            return $this->translator->trans('{1}Il y a un jour|]1,Inf[Il y a %count% jours', ['%count%' => $days]);
+            return $this->translator->trans('{1}il y a un jour|]1,Inf[il y a %count% jours', ['%count%' => $days]);
         } elseif ($hours > 0) {
-            return $this->translator->trans('{1}Il y a une heure|]1,Inf[Il y a %count% heures', ['%count%' => $hours]);
+            return $this->translator->trans('{1}il y a une heure|]1,Inf[il y a %count% heures', ['%count%' => $hours]);
         } elseif ($minutes > 0) {
-            return $this->translator->trans('{1}Il y a une minute|]1,Inf[Il y a %count% minutes', ['%count%' => $minutes]);
+            return $this->translator->trans('{1}il y a une minute|]1,Inf[il y a %count% minutes', ['%count%' => $minutes]);
         } else {
-            return 'Il y a quelques secondes';
+            return 'il y a quelques secondes';
         }
     }
 

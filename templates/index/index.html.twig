@@ -3,13 +3,12 @@
 {% block title %}Index index{% endblock %}
 
 {% block body %}
-    <h1 class="top">Bonjour !!!</h1>
-    <div class="top">
+    <div>
         {% for article in articles %}
             <div class="article-container view-mode">
                 <h1>{{ article.titre }}</h1>
                 <p>{{ article.description }}</p>
-                <p>Par <span class="author-name">{{ article.pseudo }}</span>, dernière mise à jour il y a <time class="last-updated">{{ article.updatedAt|time_ago  }}</time></p>
+                <p>Par <span class="author-name">{{ article.pseudo }}</span>, dernière mise à jour <time class="last-updated">{{ article.updatedAt|time_ago  }}</time></p>
                 <a href="{{ path('app_article_show', {'id': article.id}) }}" class="edit-article-btn">Afficher</a>
                 <a href="{{ path('app_article_edit', {'id': article.id}) }}" class="edit-article-btn">Editer</a>
             </div>
