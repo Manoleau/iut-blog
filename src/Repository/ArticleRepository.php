@@ -20,6 +20,22 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
+    public function findByAuthor(string $query)
+    {
+        return $this->createQueryBuilder('a')
+            ->where('a.pseudo LIKE :query')
+            ->setParameter('query', '%' . $query . '%')
+            ->getQuery()
+            ->getResult();
+    }
+    public function findByTitle(string $query)
+    {
+        return $this->createQueryBuilder('a')
+            ->where('a.titre LIKE :query')
+            ->setParameter('query', '%' . $query . '%')
+            ->getQuery()
+            ->getResult();
+    }
 
 //    /**
 //     * @return Article[] Returns an array of Article objects
