@@ -1,0 +1,45 @@
+h2 {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #555;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.article-s, .commentaire-s {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.article-s span, .commentaire-s span {
+    font-size: 14px;
+    color: #666;
+}
+
+.article-s strong, .commentaire-s strong {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.article-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.article-btn:hover {
+    background-color: #0056b3;
+}

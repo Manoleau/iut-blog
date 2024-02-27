@@ -1,0 +1,154 @@
+.site-header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    padding: 0 20px;
+}
+.gauche{
+    display: flex;
+    align-items: center;
+}
+
+.home-link {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.search-form input[type="text"] {
+    padding: 5px;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Style pour le switch du mode admin */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.add-article {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff; /* Couleur de fond bleue pour le distinguer */
+    padding: 8px 12px; /* Espacement intérieur pour rendre le bouton plus grand */
+    border-radius: 4px; /* Arrondir les coins pour un look moderne */
+    font-size: 16px; /* Ajustement de la taille de la police pour une meilleure lisibilité */
+    transition: background-color 0.3s; /* Animation douce lors du survol */
+    margin-left: 30px;
+}
+
+.add-article:hover {
+    background-color: #0056b3; /* Assombrir le bouton au survol pour un effet interactif */
+    text-decoration: none; /* Garantir que le soulignement ne réapparaisse pas au survol */
+}
+
+.search-form .submit {
+    background-color: #4CAF50; /* Vert pour indiquer l'action de soumission ou de validation */
+    color: white; /* Texte blanc pour un contraste élevé avec le fond vert */
+    padding: 10px 20px; /* Espacement intérieur pour augmenter la surface cliquable */
+    border: none; /* Supprimer la bordure par défaut pour un look plus propre */
+    border-radius: 5px; /* Coins arrondis pour un design moderne et doux */
+    cursor: pointer; /* Changement du curseur en pointeur pour indiquer la cliquabilité */
+    font-size: 16px; /* Taille de police appropriée pour la lisibilité */
+    transition: background-color 0.2s, transform 0.2s; /* Transition douce pour le feedback visuel */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Ombre subtile pour la profondeur et l'accentuation */
+}
+
+.search-form .submit:hover {
+    background-color: #45a049; /* Assombrir légèrement au survol pour indiquer l'interactivité */
+    transform: translateY(-2px); /* Effet de léger soulèvement au survol pour le feedback */
+}
+
+.search-form .submit:active {
+    background-color: #3e8e41; /* Couleur plus foncée lors du clic pour simuler une pression */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Réduire l'ombre pour l'effet pressé */
+    transform: translateY(1px); /* Effet de pression en déplaçant légèrement le bouton vers le bas */
+}
+
+.search-form .input {
+    margin-left: 20px;
+    background-color: #f8f8f8; /* Couleur de fond légère pour distinguer l'input du reste du formulaire */
+    border: 1px solid #ccc; /* Bordure subtile pour définir les limites de l'input */
+    border-radius: 4px; /* Coins arrondis pour un look moderne et doux */
+    font-size: 16px; /* Taille de police pour une bonne lisibilité */
+    padding: 10px; /* Espacement intérieur pour un texte facile à lire et à écrire */
+    box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans la largeur totale */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transition douce pour le focus et le survol */
+}
+
+.search-form .input:focus {
+    border-color: #4A90E2; /* Couleur de bordure accentuée pour indiquer le focus */
+    box-shadow: 0 0 0 2px rgba(74,144,226,0.2); /* Ombre externe pour un effet de mise en évidence */
+    outline: none; /* Supprime le contour par défaut pour utiliser l'ombre comme indicateur de focus */
+}
+.icon-admin{
+    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+    color: red;
+}
