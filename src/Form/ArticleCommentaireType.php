@@ -17,11 +17,11 @@ class ArticleCommentaireType extends AbstractType
     {
         $builder
             ->add('pseudo', TextType::class, [
-                'label' => false, // Ne pas afficher le label
+                'label' => false,
                 'attr' => ['placeholder' => 'Votre pseudo']
             ])
             ->add('description', TextareaType::class, [
-                'label' => false, // Ne pas afficher le label
+                'label' => false,
                 'attr' => ['placeholder' => 'Votre commentaire']
             ])
         ;

@@ -4,11 +4,16 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+
         {% block stylesheets %}
+        
         {% endblock %}
 
+        <script src="{{ asset('assets/js/modeadmin.js') }}"></script>
+
         {% block javascripts %}
-{% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
     <body>
@@ -16,16 +21,17 @@
         <div class="header-content">
             <div class="droite">
                 <a href="/" class="home-link">IUT Blog</a>
+                <a class="add-article" href="{{ path('app_article_new') }}" >Nouvelle article</a>
             </div>
             <div class="gauche">
+                <img class="icon-admin" src="https://www.aht.li/3835562/user.svg" alt="">
                 <label class="switch">
                     <input type="checkbox" id="admin-mode-switch">
                     <span class="slider round"></span>
                 </label>
-                <button>Nouvelle article</button>
                 <form class="search-form" action="{{ path('app_search') }}" method="GET">
-                    <input type="text" name="q" placeholder="Rechercher...">
-                    <button type="submit">Recherche</button>
+                    <input type="text" name="q" class="input" placeholder="Rechercher...">
+                    <button type="submit" class="submit">Recherche</button>
                 </form>
             </div>
         </div>

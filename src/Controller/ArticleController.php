@@ -18,15 +18,12 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/article')]
 class ArticleController extends AbstractController
 {
-    #[Route('/', name: 'app_article_index', methods: ['GET'])]
-    public function index(ArticleRepository $articleRepository): Response
+    #[Route(path:'/', name:'app_article_index')]
+    public function returntomenu(): Response
     {
-        return $this->render('article/index.html.twig', [
-            'articles' => $articleRepository->findAll(),
-        ]);
+        return $this->redirectToRoute('app_index');
     }
-
-    #[Route('/new', name: 'app_article_new', methods: ['GET', 'POST'])]
+    #[Route('/nouveau', name: 'app_article_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $article = new Article();
@@ -40,7 +37,9 @@ class ArticleController extends AbstractController
             $entityManager->persist($article);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_article_show', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_article_show', [
+                'id' => $article->getId(),
+            ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('article/new.html.twig', [

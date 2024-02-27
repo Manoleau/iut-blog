@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Article{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/show_article.css') }}">
+{% endblock %}
 
 {% block body %}
 <div class="article-container top">
@@ -17,7 +20,7 @@
         {% for commentaire in commentaires %}
         <div class="comment">
             <p class="comment-author">{{ commentaire.pseudo }}</p>
-            <p class="comment-date">Il y a {{ commentaire.updatedAt|time_ago }}</p>
+            <p class="comment-date">Il y a {{ commentaire.createdAt|time_ago }}</p>
             <p class="comment-content">{{ commentaire.description }}</p>
         </div>
         {% else %}
@@ -25,7 +28,6 @@
         {% endfor %}
 
     </div>
-    <a href="{{ path('app_article_index') }}" class="retour-menu-principal">back to list</a>
 
     {# {{ include('article/_delete_form.html.twig') }} #}
 {% endblock %}

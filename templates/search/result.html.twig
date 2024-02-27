@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Search{% endblock %}
+{% block title %}Recherche {{ app.request.query.get('q') }}{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/search.css') }}">
+{% endblock %}
 
 {% block body %}
     {% if app.request.query.get('q') %}
@@ -8,13 +12,21 @@
 
         <h3>Articles</h3>
         {% for article in auteurs %}
-            <div>
-                <p>{{ article.titre }} de <strong>{{ article.pseudo }}</strong></p>
+            <div class="article-s">
+                <span>{{ article.titre }} de <strong>{{ article.pseudo }}</strong> crée il y a {{ article.createdAt|time_ago  }}</span>
+                <a href="{{ path('app_article_show', {'id': article.id}) }}" class="article-btn">Afficher</a>
             </div>
         {% endfor %}
         {% for article in titres %}
-            <div>
-                <p><strong>{{ article.titre }}</strong> de {{ article.pseudo }}</p>
+            <div class="article-s">
+                <span><strong>{{ article.titre }}</strong> de {{ article.pseudo }} crée il y a {{ article.createdAt|time_ago  }}</span>
+                <a href="{{ path('app_article_show', {'id': article.id}) }}" class="article-btn">Afficher</a>
+            </div>
+        {% endfor %}
+        <h3>Commentaires</h3>
+        {% for commentaire in commentaires %}
+            <div class="commentaire-s">
+                <span>De <strong>{{ commentaire.pseudo }}</strong> il y a {{ commentaire.createdAt|time_ago }} sous l'article {{ commentaire.article.titre }}</span>
             </div>
         {% endfor %}
 

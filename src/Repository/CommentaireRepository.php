@@ -21,6 +21,15 @@ class CommentaireRepository extends ServiceEntityRepository
         parent::__construct($registry, Commentaire::class);
     }
 
+    public function findByAuthor(string $query)
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.pseudo LIKE :query')
+            ->setParameter('query', '%' . $query . '%')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Commentaire[] Returns an array of Commentaire objects
 //     */

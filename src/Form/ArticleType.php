@@ -8,15 +8,28 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+
 
 class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre')
-            ->add('description')
-            ->add('pseudo')
+            ->add('titre', TextType::class, [
+                'label' => false,
+                'attr' => ['placeholder' => 'Titre']
+            ])
+            ->add('pseudo', TextType::class, [
+                'label' => false,
+                'attr' => ['placeholder' => 'Pseudo']
+            ])
+            ->add('description', TextareaType::class, [
+                'label' => false,
+                'attr' => ['placeholder' => 'Contenu']
+            ])
+            
         ;
     }
 

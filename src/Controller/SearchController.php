@@ -8,11 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article;
+use App\Entity\Commentaire;
+
 
 #[Route('/search')]
 class SearchController extends AbstractController
 {
-    #[Route('/', name: 'app_search', methods: ['GET'])]
+    #[Route('', name: 'app_search', methods: ['GET'])]
     public function search(Request $request,ManagerRegistry $doctrine): Response
     {
         $query = $request->query->get('q');
@@ -24,11 +26,14 @@ class SearchController extends AbstractController
             $titres = $doctrine
                         ->getRepository(Article::class)
                         ->findByTitle($query);
-
-            // Ici, vous pouvez passer les articles à votre vue
+            
+            $commentaires = $doctrine
+                            ->getRepository(Commentaire::class)
+                            ->findByAuthor($query);
             return $this->render('search/result.html.twig', [
                 'auteurs' => $auteurs,
                 'titres' => $titres,
+                'commentaires' => $commentaires,
             ]);
         }
         return $this->render('search/result.html.twig',[
