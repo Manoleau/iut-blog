@@ -48,7 +48,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_article_show', methods: ['GET', 'POST'])]
+    #[Route('/{id}', name: 'app_article_show', methods: ['GET'])]
     public function show(EntityManagerInterface $entityManager, Request $request, Article $article, CommentaireRepository $commentaireRepository): Response
     {
         $commentaire = new Commentaire();
@@ -93,10 +93,14 @@ class ArticleController extends AbstractController
     public function delete(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+            $commentaires = $article->getCommentaires();
+            for($i = 0; $i<$commentaires->count();$i++){
+                $entityManager->remove($commentaires->get($i));
+            }
             $entityManager->remove($article);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_index', [], Response::HTTP_SEE_OTHER);
     }
 }
