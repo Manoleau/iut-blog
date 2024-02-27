@@ -29,6 +29,12 @@ class ArticleType extends AbstractType
                 'label' => false,
                 'attr' => ['placeholder' => 'Contenu']
             ])
+            ->add('categories', EntityType::class, [
+                'class' => Categorie::class,
+                'choice_label' => 'nom',
+                'multiple' => true,
+                'expanded' => true
+            ])
             
         ;
     }
